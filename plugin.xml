@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            name="Fishbowl"
+            id="plug.commands.category">
+      </category>
+      <command
+            categoryId="plug.commands.category"
+            id="plug.commands.sync_out"
+            name="Sync out">
+      </command>
+      <command
+            name="Sync in"
+            categoryId="plug.commands.category"
+            id="plug.commands.sync_in">
+      </command>
+      <command
+            categoryId="plug.commands.category"
+            id="plug.commands.check_out"
+            name="Check out">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="plug.handlers.SyncOutHandler"
+            commandId="plug.commands.sync_out">
+      </handler>
+      <handler
+            commandId="plug.commands.sync_in"
+            class="plug.handlers.SyncInHandler">
+      </handler>
+      <handler
+            class="plug.handlers.CheckOutHandler"
+            commandId="plug.commands.check_out">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="plug.commands.sync_out"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+5">
+      </key>
+      <key
+            commandId="plug.commands.sync_in"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+4"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </key>
+      <key
+            commandId="plug.commands.check_out"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+2">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               label="Fishbowl"
+               mnemonic="M"
+               id="plug.menus.sampleMenu">
+            <command
+                  commandId="plug.commands.sync_in"
+                  mnemonic="S"
+                  id="plug.menus.sync_in">
+            </command>
+            <command
+                  commandId="plug.commands.sync_out"
+                  id="plug.menus.sync_out"
+                  mnemonic="S">
+            </command>
+            <command
+                  commandId="plug.commands.check_out"
+                  id="plug.menus.check_out"
+                  mnemonic="S">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="plug.toolbars.sampleToolbar">
+            <command
+                  commandId="plug.commands.sync_in"
+                  icon="icons/sync_in.gif"
+                  id="plug.toolbars.sync_in"
+                  tooltip="Sync in">
+            </command>
+            <command
+                  commandId="plug.commands.sync_out"
+                  icon="icons/sync_out.gif"
+                  id="plug.toolbars.sync_out"
+                  tooltip="Sync out">
+            </command>
+            <command
+                  commandId="plug.commands.check_out"
+                  icon="icons/check_out.gif"
+                  id="plug.toolbars.check_out"
+                  tooltip="Check out">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+
+</plugin>
