@@ -69,7 +69,7 @@ public class SyncOutHandler extends AbstractHandler {
 						while((msg = br.readLine())!= null){ 
 							all_msg = all_msg + msg + "\n\r";
 						}
-						MessageConsole console = new MessageConsole("My Console", null);						 
+						final MessageConsole console = new MessageConsole("Sync out", null);						 
 						console.clearConsole();
 						console.activate();					 
 						ConsolePlugin.getDefault().getConsoleManager().addConsoles(new IConsole[] { console });
